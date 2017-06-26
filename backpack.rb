@@ -9,6 +9,10 @@ class Backpack
     @items
   end
 
+  def weather
+    @attributes[:weather]
+  end
+
   def prepare
     # set up local variables used by rest of prepare method
     weather = @attributes[:weather]
