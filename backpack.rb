@@ -1,4 +1,5 @@
 require_relative 'day.rb'
+require_relative 'weather.rb'
 
 class Backpack
 
@@ -25,28 +26,18 @@ class Backpack
   def prepare
 
     # Ensure appropriate clothing is added to backpack
-    add_clothing(weather)
-
+    @items << 'umbrella' if Weather.new(weather).rainy?
+    @items << 'jacket'   if Weather.new(weather).cold?
+    
     # Ensure gym shoes are added to backpack if it's a gym day
-      @items << 'gym shoes' if Day.new(day_of_week).gym_day?
+    @items << 'gym shoes' if Day.new(day_of_week).gym_day?
 
     # Bring a packed lunch on all weekdays
     @items << 'packed lunch' if Day.new(day_of_week).weekday?
+
   end
 
 
-
-
-  
-
-  def add_clothing(weather)
-
-    if weather == 'rainy'
-        @items << 'umbrella'
-    elsif weather == 'cold'
-      @items << 'jacket'
-    end
-  end
 
   # Prints a summary packing list for Melinda's backpack
   def packing_list_summary

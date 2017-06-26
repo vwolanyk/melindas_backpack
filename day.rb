@@ -10,7 +10,6 @@ class Day
 
   def weekday?
   @day_of_week != 'saturday' && @day_of_week != 'sunday'
-
   end
 
 end
