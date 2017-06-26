@@ -38,13 +38,13 @@ class Backpack
     if day_of_week != 'saturday' && day_of_week != 'sunday'
       @items << 'packed lunch'
     elsif false
-      # Used to bring snacks on weekend trips, but now I just buy 'em
+
       @items << 'snacks'
     end
   end
 
   # Prints a summary packing list for Melinda's backpack
-  def my_func
+  def packing_list_summary
     output = []
     output << "Melinda, here's your packing list!"
     output << "Day: #{@attributes[:day_of_week]}, Weather: #{@attributes[:weather]}"
