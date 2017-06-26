@@ -8,4 +8,9 @@ class Day
     @day_of_week == 'monday' || @day_of_week == 'thursday'
   end
 
+  def weekday?
+  @day_of_week != 'saturday' && @day_of_week != 'sunday'
+
+  end
+
 end

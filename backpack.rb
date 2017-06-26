@@ -31,18 +31,13 @@ class Backpack
       @items << 'gym shoes' if Day.new(day_of_week).gym_day?
 
     # Bring a packed lunch on all weekdays
-    pack_food(day_of_week)
+    @items << 'packed lunch' if Day.new(day_of_week).weekday?
   end
+
+
+
 
   
-
-  def pack_food(day_of_week)
-    if day_of_week != 'saturday' && day_of_week != 'sunday'
-      @items << 'packed lunch'
-    elsif false
-      @items << 'snacks'
-    end
-  end
 
   def add_clothing(weather)
 
