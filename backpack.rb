@@ -1,7 +1,7 @@
 class Backpack
   def initialize(attributes)
     @attributes = attributes # a hash containing day_of_week and weather keys
-    @items = []
+    @items = ['pants', 'shirt']
     prepare
   end
 
@@ -37,9 +37,6 @@ class Backpack
   end
 
   def add_clothing(weather)
-    # Always Add
-    @items << 'pants'
-    @items << 'shirt'
 
     if weather == 'rainy'
         @items << 'umbrella'
