@@ -14,26 +14,25 @@ class Backpack
   end
 
   def weather
-    @attributes[:weather]
+    Weather.new(@attributes[:weather])
   end
 
   def day_of_week
-    # today = Day.new('thursday')
-    # today.weekday?
-    @attributes[:day_of_week]
+    Day.new(@attributes[:day_of_week])
+
   end
 
   def prepare
 
     # Ensure appropriate clothing is added to backpack
-    @items << 'umbrella' if Weather.new(weather).rainy?
-    @items << 'jacket'   if Weather.new(weather).cold?
-    
+    @items << 'umbrella' if weather.rainy?
+    @items << 'jacket'   if weather.cold?
+
     # Ensure gym shoes are added to backpack if it's a gym day
-    @items << 'gym shoes' if Day.new(day_of_week).gym_day?
+    @items << 'gym shoes' if day_of_week.gym_day?
 
     # Bring a packed lunch on all weekdays
-    @items << 'packed lunch' if Day.new(day_of_week).weekday?
+    @items << 'packed lunch' if day_of_week.weekday?
 
   end
 
