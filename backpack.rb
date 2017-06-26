@@ -13,10 +13,11 @@ class Backpack
     @attributes[:weather]
   end
 
+  def day_of_week    
+    @attributes[:day_of_week]
+  end
+
   def prepare
-    # set up local variables used by rest of prepare method
-    weather = @attributes[:weather]
-    day_of_week = @attributes[:day_of_week]
 
     # Ensure appropriate clothing is added to backpack
     add_clothing(weather)
