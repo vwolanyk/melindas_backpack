@@ -1,4 +1,7 @@
+require_relative 'day.rb'
+
 class Backpack
+
   def initialize(attributes)
     @attributes = attributes # a hash containing day_of_week and weather keys
     @items = ['pants', 'shirt']
@@ -13,7 +16,9 @@ class Backpack
     @attributes[:weather]
   end
 
-  def day_of_week    
+  def day_of_week
+    # today = Day.new('thursday')
+    # today.weekday?
     @attributes[:day_of_week]
   end
 
@@ -23,15 +28,13 @@ class Backpack
     add_clothing(weather)
 
     # Ensure gym shoes are added to backpack if it's a gym day
-      @items << 'gym shoes' if gym_day?(day_of_week)
+      @items << 'gym shoes' if Day.new(day_of_week).gym_day?
 
     # Bring a packed lunch on all weekdays
     pack_food(day_of_week)
   end
 
-  def gym_day?(day_of_week)
-    day_of_week == 'monday' || day_of_week == 'thursday'
-  end
+  
 
   def pack_food(day_of_week)
     if day_of_week != 'saturday' && day_of_week != 'sunday'
